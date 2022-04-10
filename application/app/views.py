@@ -3,7 +3,7 @@ from .models import User, Stock, Properties
 
 
 def home(request):
-    pass
+    return render(request, 'home.html')
 
 
 def stock(request, stock_slug):
