@@ -31,7 +31,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'channels',
     'app',
-    'users',
 ]
 
 MIDDLEWARE = [
