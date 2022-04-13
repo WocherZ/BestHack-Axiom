@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <p>Main page</p>
+    <p>Текущий баланс:
+        {{ user.profile.balance }}
+    </p>
+    <form method="post">
+        {% csrf_token %}
+        {{ profile_form.as_p }}
+        <button type="submit">Пополнить</button>
+    </form>
+{% endblock %}

@@ -2,25 +2,43 @@
 {% load static %}
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    {% block title %}
-    <title>Title</title>
-    {% endblock %}
 
-    <link type="text/css" href="{% static 'css/base.css' %}" rel="stylesheet"/>
-    {% block files %}
-    {% endblock %}
+<body>
+
+<h1>Hello, {{ user.username|default:'Guest' }}</h1>
+
+<p> Welcome to the site</p>
+<div>
+    {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Logout</a>
+
+    {% else %}
+        <a href="{% url 'registration' %}">Sign Up</a>
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</div>
+
+</body>
+
+<meta charset="UTF-8">
+{% block title %}
+    <title>Title</title>
+{% endblock %}
+
+<link type="text/css" href="{% static 'css/base.css' %}" rel="stylesheet"/>
+{% block files %}
+{% endblock %}
 </head>
 <body>
-    <header>
-        <p>It is HEADER!</p>
-    </header>
+<header>
+    <p>It is HEADER!</p>
+</header>
 
-    {% block content %}
-    {% endblock %}
+{% block content %}
+{% endblock %}
 
-    <footer>
+<footer>
 
-    </footer>
+</footer>
 </body>
 </html>

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <a href="{% url 'edit_profile' %}">Изменить профиль</a>
+    <p>Main page</p>
+    <p>Текущий баланс:
+        {{ user.profile.balance }}
+    </p>
+    <a href="{% url 'balance' %}">Пополнить баланс</a>
+{% endblock %}
