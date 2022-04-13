@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import User, Stock, Properties
+from .models import *
 
 
 class UserAdmin(admin.ModelAdmin):
@@ -15,6 +15,5 @@ class PropertiesAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(User, UserAdmin)
 admin.site.register(Stock, StockAdmin)
 admin.site.register(Properties, PropertiesAdmin)

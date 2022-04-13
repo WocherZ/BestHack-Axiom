@@ -1,0 +1,14 @@
+<!--/templates/register.html-->
+
+{% block content %}
+    <h2>Register</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <p><input type="submit" value="Register"></p>
+    </form>
+
+    <a href="{% url 'login' %}">Back to login</a>
+    <a href="{% url 'home' %}">Back to Home</a>
+{% endblock %}
