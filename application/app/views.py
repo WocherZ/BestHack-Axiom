@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
-from .models import *
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
@@ -10,12 +9,15 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
 from .forms import *
 
+
 def stocks(request):
     return render(request, 'stocks.html')
+
 
 def stock(request, stock_slug):
     stock_object = get_object_or_404(Stock, slug=stock_slug)
     return HttpResponse("Your slug:" + str(stock_object.slug))
+
 
 def home(request):
     return render(request, "home.html")
@@ -46,9 +48,7 @@ def balance(request):
             messages.error(request, ('Пожалуйста, исправьте ошибки.'))
     else:
         profile_form = ProfileForm(instance=request.user.profile)
-    return render(request, 'balance.html', {
-        'profile_form': profile_form
-    })
+    return render(request, 'balance.html', {'profile_form': profile_form})
 
 
 @login_required
@@ -59,7 +59,7 @@ def update_profile(request):
         if user_form.is_valid():
             user_form.save()
             messages.success(request, ('Ваш профиль был успешно обновлен!'))
-            return redirect('edit_profile')
+            return redirect('profile')
         else:
             messages.error(request, ('Пожалуйста, исправьте ошибки.'))
     else:
@@ -67,4 +67,3 @@ def update_profile(request):
     return render(request, 'edit_profile.html', {
         'user_form': user_form,
     })
-
