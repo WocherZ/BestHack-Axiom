@@ -6,7 +6,7 @@
         {% csrf_token %}
         {{ user_form.as_p }}
         {{ profile_form.as_p }}
-        <a href="{% url 'profile' %}" type="submit">Сохранить изменения</a>
+        <button type="submit">Сохранить изменения</button>
     </form>
     <p>Main page</p>
     <p>Текущий баланс:
