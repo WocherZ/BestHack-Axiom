@@ -49,4 +49,3 @@ class Properties(models.Model):
 
     def __str__(self):
         return str(str(self.user) + ": " + str(self.price))
-
