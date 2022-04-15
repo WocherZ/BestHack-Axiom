@@ -22,7 +22,6 @@ class Profile(models.Model):
     balance = models.DecimalField(max_digits=19, decimal_places=2, validators=[MinValueValidator(0)], default=0.0)
 
 
-
 class Stock(models.Model):
     name = models.CharField(max_length=64)
     current_price = models.DecimalField(max_digits=19, decimal_places=2)

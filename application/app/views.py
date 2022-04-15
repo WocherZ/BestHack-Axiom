@@ -22,9 +22,14 @@ def stock(request, stock_slug):
 def home(request):
     return render(request, "home.html")
 
-
+@login_required
+@transaction.atomic
 def profile(request):
-    return render(request, "profile.html")
+    user = User.objects.all().get(id=request.user.id)
+    if user.get_short_name() == '':
+        return redirect('edit_profile')
+    else:
+        return render(request, "profile.html")
 
 
 class SignUp(CreateView):
@@ -43,11 +48,12 @@ def balance(request):
             user.profile.balance = request.user.profile.balance + user.profile.balance
             user.save()
             messages.success(request, ('Баланс пополнен.'))
+            profile_form = ProfileForm()
             return redirect('profile')
         else:
             messages.error(request, ('Пожалуйста, исправьте ошибки.'))
     else:
-        profile_form = ProfileForm(instance=request.user.profile)
+        profile_form = ProfileForm()
     return render(request, 'balance.html', {'profile_form': profile_form})
 
 

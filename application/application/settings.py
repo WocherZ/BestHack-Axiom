@@ -15,6 +15,7 @@ ALLOWED_HOSTS = []
 
 LOGIN_REDIRECT_URL = "profile"
 LOGOUT_REDIRECT_URL = "login"
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Application definition
 
