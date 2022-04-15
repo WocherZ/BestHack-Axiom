@@ -1,11 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}Список акций{% endblock %}
+
 {% block files %}
     <script type="text/javascript" src="{% static 'js/stocks.js' %}"></script>
 {% endblock %}
 
 {% block content %}
-	<h2 id="parent"></h2>
+    <div class="container">
+        <div class="text-center" style="margin: 20px">
+            <h1>Текущие акции</h1>
+        </div>
+        <ul id="parent" style="list-style-type: none">
+        </ul>
+    </div>
 {% endblock %}
+
+
+
+<!--	<h2 id="parent"></h2>-->
 

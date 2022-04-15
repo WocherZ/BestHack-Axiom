@@ -1,5 +1,4 @@
 import json
-from random import randint
 from time import sleep
 
 from channels.generic.websocket import WebsocketConsumer
@@ -24,3 +23,13 @@ class WSConsumer(WebsocketConsumer):
 
     def disconnect(self, code):
         print("WebSocket disconnect")
+
+
+class GraphConsumer(WebsocketConsumer):
+    def connect(self):
+        print("Graph WebSocket connect")
+        self.accept()
+
+        for i in range(100):
+            self.send(json.dumps({'date': ['11.04', '12.04', '13.04', '14.04', '15.04'], 'values': [3269, 3217, 3172, 3010, 2962]}))
+            sleep(1)

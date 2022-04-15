@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+        <button type="submit">Сохранить изменения</button>
+    </form>
+    <p>Main page</p>
+    <p>Текущий баланс:
+        {% if user.profile.balance %}
+            0
+        {% else %}
+            {{ user.profile.balance }}
+        {% endif %}
+    </p>
+    <a href="{% url 'balance' %}">Пополнить баланс</a>
+{% endblock %}

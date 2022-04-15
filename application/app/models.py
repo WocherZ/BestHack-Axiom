@@ -1,19 +1,26 @@
-from django.db import models
 from django.urls import reverse
-from django.core.validators import MinValueValidator, MaxValueValidator
+from django.core.validators import MinValueValidator
+from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
-class User(models.Model):
-    email = models.EmailField()
-    password = models.CharField(max_length=64)
-    name = models.CharField(max_length=32)
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
 
-    balance = models.DecimalField(max_digits=19, decimal_places=2,  validators=[
-            MinValueValidator(0)
-        ],)
 
-    def __str__(self):
-        return str(self.name)
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    balance = models.DecimalField(max_digits=19, decimal_places=2, validators=[MinValueValidator(0)], default=0.0)
+
 
 
 class Stock(models.Model):
@@ -37,8 +44,8 @@ class Properties(models.Model):
                                  null=True)
     price = models.DecimalField(max_digits=19, decimal_places=2)
     number = models.IntegerField(validators=[
-            MinValueValidator(0)
-        ],)
+        MinValueValidator(0)
+    ], )
 
     def __str__(self):
         return str(str(self.user) + ": " + str(self.price))
