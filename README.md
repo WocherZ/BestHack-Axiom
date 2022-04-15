@@ -33,7 +33,7 @@
    ```
    pip3 install -r ../requirements.txt
    python3 manage.py makemigrations
-   python3 manage.py migrate
+   python3 manage.py migrate --run-syncdb
    python3 manage.py runserver
    ```
 4. Перейдите на `http://127.0.0.1:8000/`, чтобы увидеть основную страницу
