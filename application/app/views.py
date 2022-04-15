@@ -1,6 +1,4 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
-from .models import User, Stock, Properties
 from .forms import *
 
 from django.db import transaction
@@ -9,6 +7,19 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
+
+import requests
+
+api_url = 'https://www.alphavantage.co/query?'
+
+# Получение курса обной валюты к другой
+function_api1 ='function=CURRENCY_EXCHANGE_RATE'
+
+# Получение стоимости акции за каждую неделю
+function_api2 ='function=TIME_SERIES_WEEKLY'
+
+# Получение стоимости акции за последний день
+function_api3 ='function=GLOBAL_QUOTE'
 
 
 def home(request):

@@ -1,11 +1,50 @@
-
 {% extends 'base.html' %}
 
 {% block title %}Главная страница{% endblock %}
 {% load static %}
 
 {% block content %}
-<!--    <div style="background-color: rgb(0, 0, 0); height: 800px; width: 100%; padding: 20px">-->
-<!--        <a>Всем привет</a>-->
-<!--    </div>-->
+    <div class="container" style="display: flex; flex-direction: column; justify-content: center; margin-top: 20px; width: 60%">
+        <div class="text-center">
+            <h2>Начните инвестировать уже сегодня!</h2>
+         </div>
+
+        <div style="display: inline-flex; justify-content: center; margin-top: 10px; width: 100%">
+            <div style="background-color: black; color: white; padding: 20px; border-bottom-left-radius: 20px; border-top-left-radius: 20px">
+                <h2>Почему именно мы?</h2>
+
+                <ul>
+                    <li>Удобный и приятный интерфейс</li>
+                    <li>Возможность наглядно отслеживать цены в реальном времени</li>
+                    <li>Большой выбор компаний</li>
+                </ul>
+            </div>
+
+            <div style="border-color: black; border-width: 5px; border-style: solid; border-bottom-right-radius: 20px; border-top-right-radius: 20px; padding: 10px; padding-left: 20px; padding-right: 20px color: black ">
+                <h2>Что Вам нужно, чтобы начать уже сейчас?</h2>
+
+                <ul>
+                    <li>Создать аккаунт</li>
+                    <li>Войти в него</li>
+                    <li>Пополнить баланс любым удобным способом</li>
+                    <li>Покупать акции</li>
+                </ul>
+            </div>
+        </div>
+
+             <div style="margin-top: 20px; border-color: #ffc107; border-width: 5px; border-style: solid; border-radius: 20px; padding: 10px; padding-left: 20px; padding-right: 20px; color: black ">
+                 <h3>Почему нужно инвестировать свои сбережения?</h3>
+                Когда вы инвестируете деньги в акции, вы защищаете свои средства от инфляции. Если мы говорим о нормальных странах, с нормальными экономическими показателями и фондовым рынком, в частности таким является фондовый рынок США, то исторически доходность от акций всегда опережается процент инфляции.
+            </div>
+
+            <div style="margin-top: 20px; border-color: #ffc107; border-width: 5px; border-style: solid; border-radius: 20px; padding: 10px; padding-left: 20px; padding-right: 20px; color: black ">
+                <h3>Четыре причин почему каждый должен инвестировать свои сбережения:</h3>
+                <ul>
+                    <li>Дополнительный доход (пусть и небольшой)</li>
+                    <li>Ваши сбережения не подвержены инфляции</li>
+                    <li>Вы помогаете развиваться компаниям</li>
+                    <li>Вы сами можете выбрать в какие идеи инвестировать, тем самым помогая этим идеям увидеть свет</li>
+                </ul>
+            </div>
+    </div>
 {% endblock %}

@@ -20,19 +20,25 @@ var graphData = {
     options: {
         scales: {
             x: {
+                color: '#87CEEB',
                 grid: {
                     display: true,
                     drawBorder: true,
-                    drawOnChart
+                    drawOnChart: true,
+                    drawTicks: true,
                 }
             },
             y: {
+                color: '##87CEEB',
                 grid: {
                     display: true,
-                }
-            }
+                    drawBorder: true,
+                    drawOnChart: true,
+                    drawTicks: true,
+                },
+            },
         }
-    }
+    },
 };
 
 
