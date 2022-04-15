@@ -1,11 +1,52 @@
-{% extends "base.html" %}
+{#{% extends "base.html" %}#}
+{#{% load static %}#}
+{##}
+{#{% block content %}#}
+{#    <a href="{% url 'edit_profile' %}">Изменить профиль</a>#}
+{#    <p>Main page</p>#}
+{#    <p>Текущий баланс:#}
+{#        {{ user.profile.balance }}#}
+{#    </p>#}
+{#    <a href="{% url 'balance' %}">Пополнить баланс</a>#}
+{#{% endblock %}#}
+
+{% extends 'base.html' %}
+
+{% block title %}Личный кабинет{% endblock %}
 {% load static %}
 
 {% block content %}
-    <a href="{% url 'edit_profile' %}">Изменить профиль</a>
-    <p>Main page</p>
-    <p>Текущий баланс:
-        {{ user.profile.balance }}
-    </p>
-    <a href="{% url 'balance' %}">Пополнить баланс</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-3" style="height: 100px">
+                <div class="text-center">
+                    <h4 style="margin-top: 70px">Ваш баланс: 3 рубля</h4>
+                    <button style="width: 100%; border-radius: 10px; margin-bottom: 5px" class="btn btn-dark me-2">Опция 1</button>
+                    <button style="width: 100%; border-radius: 10px; margin-bottom: 5px" class="btn btn-dark me-2">Опция 2</button>
+                    <button style="width: 100%; border-radius: 10px; margin-bottom: 5px" class="btn btn-dark me-2">Опция 3</button>
+                    <button style="width: 100%; border-radius: 10px; margin-bottom: 5px" class="btn btn-dark me-2">Опция 4</button>
+                    <button style="width: 100%; border-radius: 10px; margin-bottom: 5px" class="btn btn-dark me-2">Опция 5</button>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="text-center" style="margin: 20px">
+                    <h1>Ваши акции</h1>
+                </div>
+                <ul style="list-style-type: none">
+                    <li style="margin-bottom: 10px">
+                        <button style="width: 100%; border-radius: 20px" class="btn btn-warning me-2">
+                            <div class="row" style="padding: 10px">
+                                <div class="col-6"style=" display:flex; justify-content: left">
+                                    <h3>Sberbank</h3>
+                                </div>
+                                <div class="col-6" style=" display:flex; justify-content: right">
+                                    <h3>Текущая стоимость: 7 рублей</h3>
+                                </div>
+                            </div>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}

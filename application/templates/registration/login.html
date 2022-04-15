@@ -1,20 +1,16 @@
-{% block title %}Login{% endblock %}
+{% extends 'base.html' %}
+
+{% block title %}Войти{% endblock %}
+{% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-    <h2>Login</h2>
-
-    <form method="post">
-        {% csrf_token %}
-        <table>
+    <div style="background-color: white; width: 25rem; padding: 20px; border-radius: 20px; margin-top: 50px">
+        <form style="display: block" method="post">
+            {% csrf_token %}
+            <h1 class="h3 mb-3 fw-normal">Войти</h1>
             {{ form.as_p }}
-            <tr>
-                <td>&nbsp;</td>
-                <td><input type="submit" value="Submit"></td>
-            </tr>
-        </table>
-    </form>
-
-    <a href="{% url 'home' %}">Back to Home</a>
-    <a href="{% url 'registration' %}">Back to signup</a>
-
+            <button class="w-100 btn btn-lg btn-warning" type="submit" style="margin-top: 20px">Войти</button>
+        </form>
+    </div>
 {% endblock %}

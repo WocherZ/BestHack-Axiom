@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
@@ -11,7 +11,7 @@ from .forms import *
 
 
 def stocks(request):
-    return render(request, 'stocks.html')
+    return render(request, 'stock_list.html')
 
 
 def stock(request, stock_slug):
@@ -64,6 +64,4 @@ def update_profile(request):
             messages.error(request, ('Пожалуйста, исправьте ошибки.'))
     else:
         user_form = UserForm(instance=request.user)
-    return render(request, 'edit_profile.html', {
-        'user_form': user_form,
-    })
+    return render(request, 'edit_profile.html', {'user_form': user_form,})
