@@ -6,6 +6,7 @@ var graphData = {
     data: {
         labels: ['01.07', '02.07', '03.07', '04.07', '05.07', '06.07'],
         datasets: [{
+            label: 'Tinkoff',
             data: [3250.2, 3340.7, 3450.2, 3703.6, 3690.5, 3201.6],
             backgroundColor: [
                 'rgba(73, 198, 230, 0.5)',
@@ -16,7 +17,22 @@ var graphData = {
             tension: 0,
         }]
     },
-    options: {}
+    options: {
+        scales: {
+            x: {
+                grid: {
+                    display: true,
+                    drawBorder: true,
+                    drawOnChart
+                }
+            },
+            y: {
+                grid: {
+                    display: true,
+                }
+            }
+        }
+    }
 };
 
 
