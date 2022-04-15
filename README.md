@@ -31,11 +31,9 @@
    ```
 3. Выполните следующие команды:
    ```
-   pip3 install -r requirements.txt
+   pip3 install -r ../requirements.txt
    python3 manage.py makemigrations
    python3 manage.py migrate
-   python3 manage.py test
-   python3 manage.py createsuperuser
    python3 manage.py runserver
    ```
 4. Перейдите на `http://127.0.0.1:8000/`, чтобы увидеть основную страницу
